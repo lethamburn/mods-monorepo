@@ -6,3 +6,4 @@ Per-game mod packs, each with its own installer. Layout: `<game>/<pack>/`; third
 | Game | Pack | Folder |
 |---|---|---|
 | Cyberpunk 2077 | Nova-Realistic: graphics + city pack (patch 2.5): ReShade, Mango's preset, Nova LUT 4, HD Reworked Ultra, ReFRACT, VFX Fixes, Crowd * Restored, Shift camera, Nova City 2 weather, CET + frameworks | [Cyberpunk2077/Nova-Realistic](Cyberpunk2077/Nova-Realistic/) |
+| Cyberpunk 2077 | KK-Photorealism: ReShade + KK Photorealism preset (patch 2.5, no ray tracing needed) | [Cyberpunk2077/KK-Photorealism](Cyberpunk2077/KK-Photorealism/) |
