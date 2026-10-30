@@ -1,5 +1,5 @@
 # Cyberpunk 2077 graphics + city pack (patch 2.5): ReShade, Mango's preset, Nova LUT 4, HD Reworked Ultra,
-# ReFRACT, Visual Effects Fixes, Crowd * Restored, Shift (camera), plus CET / redscript / Codeware / TweakXL
+# ReFRACT, Visual Effects Fixes, Crowd * Restored, Shift (camera), Nova City 2 (weather) + Weather Switcher / The Nullifier, plus CET / redscript / Codeware / TweakXL / ArchiveXL / Mod Settings
 # Usage: .\install.ps1 [-GamePath "path\to\Cyberpunk 2077"]
 param([string]$GamePath)
 $ErrorActionPreference = 'Stop'
@@ -23,7 +23,12 @@ $nexus = @(
   @{ Key='crowdwalk';Pattern='Crowd Walks Restored*.zip';                             Url="$nx/34789?tab=files&file_id=165532" },
   @{ Key='crowdprop';Pattern='Crowd Props Restored*.zip';                             Url="$nx/35285?tab=files&file_id=168624" },
   @{ Key='crowdumb'; Pattern='Crowd Umbrellas Restored*.zip';                         Url="$nx/35264?tab=files&file_id=167207" },
-  @{ Key='shift';    Pattern='Shift 22340*.zip';                                      Url="$nx/22340?tab=files&file_id=168897" }
+  @{ Key='shift';    Pattern='Shift 22340*.zip';                                      Url="$nx/22340?tab=files&file_id=168897" },
+  @{ Key='archivexl';Pattern='ArchiveXL*.zip';                                        Url="$nx/4198?tab=files&file_id=170440" },
+  @{ Key='modsettings'; Pattern='Mod Settings*.zip';                                  Url="$nx/4885?tab=files&file_id=170225" },
+  @{ Key='nullifier';Pattern='TheNullifier*.zip';                                     Url="$nx/23091?tab=files&file_id=168304" },
+  @{ Key='weatherswitcher'; Pattern='Weather Switcher*.zip';                          Url="$nx/18027?tab=files&file_id=144629" },
+  @{ Key='novacity'; Pattern='Nova City 2*.zip';                                      Url="$nx/12490?tab=files&file_id=155602" }
 )
 $reshadeUrl = 'https://reshade.me/downloads/ReShade_Setup_6.8.0.exe'
 $reshadeThumb = '589690208A5E52FB96980C4A6698F50ACD47C49F'
