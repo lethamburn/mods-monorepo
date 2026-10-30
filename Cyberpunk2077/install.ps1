@@ -1,5 +1,5 @@
 # Cyberpunk 2077 graphics + city pack (patch 2.5): ReShade, Mango's preset, Nova LUT 4, HD Reworked Ultra,
-# ReFRACT, Visual Effects Fixes, Crowd * Restored, plus CET / redscript / Codeware / TweakXL
+# ReFRACT, Visual Effects Fixes, Crowd * Restored, Shift (camera), plus CET / redscript / Codeware / TweakXL
 # Usage: .\install.ps1 [-GamePath "path\to\Cyberpunk 2077"]
 param([string]$GamePath)
 $ErrorActionPreference = 'Stop'
@@ -22,7 +22,8 @@ $nexus = @(
   @{ Key='crowdvar'; Pattern='Crowd Variety Restored*.zip';                           Url="$nx/34908?tab=files&file_id=168643" },
   @{ Key='crowdwalk';Pattern='Crowd Walks Restored*.zip';                             Url="$nx/34789?tab=files&file_id=165532" },
   @{ Key='crowdprop';Pattern='Crowd Props Restored*.zip';                             Url="$nx/35285?tab=files&file_id=168624" },
-  @{ Key='crowdumb'; Pattern='Crowd Umbrellas Restored*.zip';                         Url="$nx/35264?tab=files&file_id=167207" }
+  @{ Key='crowdumb'; Pattern='Crowd Umbrellas Restored*.zip';                         Url="$nx/35264?tab=files&file_id=167207" },
+  @{ Key='shift';    Pattern='Shift 22340*.zip';                                      Url="$nx/22340?tab=files&file_id=168897" }
 )
 $reshadeUrl = 'https://reshade.me/downloads/ReShade_Setup_6.8.0.exe'
 $reshadeThumb = '589690208A5E52FB96980C4A6698F50ACD47C49F'
