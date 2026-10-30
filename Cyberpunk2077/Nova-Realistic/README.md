@@ -1,4 +1,4 @@
-# Cyberpunk 2077 - graphics + city pack (patch 2.5, RTX)
+# Cyberpunk 2077 - Nova-Realistic: graphics + city pack (patch 2.5, RTX)
 
 Installs ReShade 6.8.0 + Mango's Ultra Reshade V2 + Nova LUT 4 + HD Reworked Project Ultra + ReFRACT + Visual Effects Fixes + the Crowd * Restored series + Shift (first person / vehicle camera) + Nova City 2 (custom weather and lighting) with Weather Switcher and The Nullifier, plus the frameworks they need (Cyber Engine Tweaks, redscript, Codeware, TweakXL, ArchiveXL, Mod Settings). RED4ext 1.31.0 must already be installed.
 
