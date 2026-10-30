@@ -5,4 +5,4 @@ Per-game mod packs, each with its own installer. One folder per game; third-part
 
 | Game | Pack | Folder |
 |---|---|---|
-| Cyberpunk 2077 | Graphics pack (patch 2.5): ReShade, Mango's preset, Nova LUT 4, HD Reworked Ultra, CET | [Cyberpunk2077](Cyberpunk2077/) |
+| Cyberpunk 2077 | Graphics + city pack (patch 2.5): ReShade, Mango's preset, Nova LUT 4, HD Reworked Ultra, ReFRACT, VFX Fixes, Crowd * Restored, CET + frameworks | [Cyberpunk2077](Cyberpunk2077/) |
