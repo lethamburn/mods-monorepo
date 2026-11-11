@@ -1,7 +1,5 @@
-# GTA V Enhanced realism pack: Natural Vision Enhanced (NVE) + NextGen Euphoria + Better Vehicle Deformation for NVE
-# + Traffic V FEAR Edition + Skip Intro.
-# STATUS: UNTESTED. Written before the game was downloaded; the zip layouts are assumed to be relative to the
-# game root (the usual convention). Verify against each mod's page the first time and fix this script.
+# GTA V Enhanced realism pack: ScriptHookV + Natural Vision Enhanced (NVE) + Skip Intro, optional NextGen Euphoria / Better Vehicle Deformation for NVE / Traffic V FEAR Edition.
+# Optional add-ons are skipped when their zip is missing. Their zip layouts are still unverified (assumed relative to the game root).
 # Usage: .\install.ps1 [-GamePath "path\to\Grand Theft Auto V Enhanced"]
 param([string]$GamePath)
 $ErrorActionPreference = 'Stop'
@@ -12,7 +10,8 @@ $nx = 'https://www.nexusmods.com/gta5enhanced/mods'
 # Install order matters: NVE first, add-ons after it. Only .zip is supported (convert .7z/.rar yourself).
 # NVE is NOT on Nexus: get it from its author (Razed Mods) and drop the zip in .\files
 $packs = @(
-  @{ Key='nve';     Pattern='*NaturalVision*Enhanced*.zip'; Url='Author site (Razed Mods) - not on Nexus' },
+  @{ Key='shv';     Pattern='ScriptHookV*.zip';           Url='http://www.dev-c.com/gtav/scripthookv/ (needs Referer header; args.txt disables BattlEye)' },
+  @{ Key='nve';    Pattern='*NaturalVision*Enhanced*.zip'; Url='Author site (Razed Mods) - not on Nexus' },
   @{ Key='euphoria';Pattern='*NextGen*Euphoria*.zip';       Url="$nx/1?tab=files" },
   @{ Key='deform';  Pattern='*Vehicle*Deformation*.zip';    Url="$nx/41?tab=files" },
   @{ Key='traffic'; Pattern='*Traffic*FEAR*.zip';           Url="$nx/49?tab=files" },
@@ -39,7 +38,8 @@ foreach($p in $packs){
 if($missing){
   "Missing files in $files (download each with 'Manual download' while logged in to Nexus):"
   $missing | % { "  - $($_.Pattern)`n    $($_.Url)" }
-  throw 'Put the zips in .\files and run again.'
+  if($missing | ? { $_.Key -in 'shv','nve' }){ throw 'ScriptHookV and NVE are required. Put the zips in .\files and run again.' }
+  'Optional add-ons missing: continuing without them (re-run later; the script is idempotent).'
 }
 
 # Backup: whole game root is too big, so only back up files the zips will overwrite
@@ -51,7 +51,10 @@ foreach($k in $found.Keys){
   $root = Join-Path $tmp $k
   # If the zip has a single top-level folder that is not part of the game layout, step into it
   $top = @(Get-ChildItem -LiteralPath $root)
-  if($top.Count -eq 1 -and $top[0].PSIsContainer -and -not (Test-Path -LiteralPath (Join-Path $GamePath $top[0].Name))){ $root = $top[0].FullName }
+  $mp = Join-Path $root 'Main Package'   # NVE: game files live in "Main Package"; the rest is docs
+  if(Test-Path -LiteralPath $mp){ $root = $mp }
+  elseif(Test-Path -LiteralPath (Join-Path $root 'bin')){ $root = Join-Path $root 'bin'; Remove-Item -LiteralPath (Join-Path $root 'NativeTrainer.asi') -ErrorAction SilentlyContinue }  # ScriptHookV
+  elseif($top.Count -eq 1 -and $top[0].PSIsContainer -and -not (Test-Path -LiteralPath (Join-Path $GamePath $top[0].Name))){ $root = $top[0].FullName }
   Get-ChildItem -LiteralPath $root -Recurse -File | % {
     $rel = $_.FullName.Substring($root.Length).TrimStart('\')
     $dst = Join-Path $GamePath $rel
