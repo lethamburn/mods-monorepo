@@ -1,5 +1,5 @@
 # GTA V Enhanced realism pack: ScriptHookV + Natural Vision Enhanced (NVE) + Skip Intro, optional NextGen Euphoria / Better Vehicle Deformation for NVE / Traffic V FEAR Edition.
-# Optional add-ons are skipped when their zip is missing. Their zip layouts are still unverified (assumed relative to the game root).
+# Optional add-ons are skipped when their zip is missing. NextGen Euphoria is NOT scripted (needs OpenRPF + CodeWalker, see README).
 # Usage: .\install.ps1 [-GamePath "path\to\Grand Theft Auto V Enhanced"]
 param([string]$GamePath)
 $ErrorActionPreference = 'Stop'
